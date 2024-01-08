@@ -849,11 +849,13 @@
                               <!-- Call To Action -->
                               <div class="s123-c-t-a" data-type="buttons" data-buttons-amount="2">
                                  <div id="169-cta" data-aos="fade-up" class="redirect-buttons-container">
-                                    <a href="https://657af2e50f9d6.site123.me#:~:text=Registration" class="s123-action-btn btn btn-primary btn-primary-automatic-recommended btn-xl 3d preview-highlighter" data-open-tool="callToActionBox" href="https://657af2e50f9d6.site123.me#:~:text=Registration"  data-button-num="0">
+                                    <section id="registration-section">
+                                    <a href="#registration-section" class="s123-action-btn btn btn-primary btn-primary-automatic-recommended btn-xl 3d preview-highlighter" data-open-tool="callToActionBox" data-button-num="0">
                                        <div class="a-b-container">
                                           <div class="a-b-t" ">Register</div>
                                        </div>
                                     </a>
+                                    </section>
                                     <a href="/about-the-tournament.html" class="s123-action-btn btn btn-primary btn-primary-automatic-recommended btn-xl 3d preview-highlighter" data-open-tool="callToActionBox" href="/about-the-tournament.html"  data-button-num="1">
                                        <div class="a-b-container">
                                           <div class="a-b-t" ">About the tournament </div>
@@ -1297,5 +1299,19 @@
       </div>
       <!-- Pjax Helper -->
       <div class="s123-front-last-element hidden"></div>
+      <script>
+         document.addEventListener("DOMContentLoaded", function() {
+             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                 anchor.addEventListener('click', function (e) {
+                     e.preventDefault();
+         
+                     document.querySelector(this.getAttribute('href')).scrollIntoView({
+                         behavior: 'smooth'
+                     });
+                 });
+             });
+         });
+         </script>
+         
    </body>
 </html>
