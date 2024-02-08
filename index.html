@@ -804,9 +804,85 @@
       <!-- Froala Editor CSS --> <!-- Google AdSense --> 
    </head>
    <body id="page-top">
-      <audio src="/bg_music/music.mp3" autoplay>
-         <p>If you are reading this, it is because your browser does not support the audio element.</p>
-         </audio>
+      <!-- Add this to your HTML head for styles -->
+<style>
+   /* Styles for the modal */
+   .modal {
+     display: none;
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     height: 150px;
+     width: 350px;
+     transform: translate(-50%, -50%);
+     background-color: #1b262c;
+     border-radius: 15px;
+     padding: 20px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+ 
+   .modal-content {
+     text-align: center;
+   }
+ 
+   /* Style for the buttons */
+   button {
+     padding: 10px 15px;
+     margin: 0 10px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+   }
+ 
+   #yesButton {
+     background-color: #34db58;
+     color: #fff;
+   }
+ 
+   #noButton {
+     background-color: #e74c3c;
+     color: #fff;
+   }
+ </style>
+ 
+ <!-- Add this to your HTML body -->
+ <div id="audioModal" class="modal">
+   <div class="modal-content">
+     <p>Use background audio?</p>
+     <button id="yesButton" onclick="enableAudio()">Yes, please!</button>
+     <button id="noButton" onclick="disableAudio()">No, thanks.</button>
+   </div>
+ </div>
+ 
+ <audio id="bgAudio" src="/bg_music/music.mp3">
+   Your browser does not support the audio element.
+ </audio>
+ 
+ <script>
+   // Add this to your existing script
+   var modal = document.getElementById("audioModal");
+ 
+   // Function to display the modal
+   function displayModal() {
+     modal.style.display = "block";
+   }
+ 
+   // Function to enable audio and close the modal
+   function enableAudio() {
+     var audio = document.getElementById("bgAudio");
+     audio.play();
+     modal.style.display = "none";
+   }
+ 
+   // Function to close the modal without enabling audio
+   function disableAudio() {
+     modal.style.display = "none";
+   }
+ 
+   // Display the modal when the page loads
+   window.onload = displayModal;
+ </script>
+ 
       <div class="body">
          <div id="websiteHeader">
             <input type="hidden" id="websiteHeaderSettings" value="{&quot;btns&quot;:{&quot;phone&quot;:{&quot;isActive&quot;:false,&quot;phoneLinkIcon&quot;:{&quot;icon&quot;:&quot;fa fa-phone&quot;},&quot;headerPhoneNumber_style&quot;:&quot;1&quot;,&quot;addDailcCode&quot;:&quot;&quot;},&quot;email&quot;:{&quot;isActive&quot;:false,&quot;headerEmail&quot;:&quot;&quot;,&quot;headerEmail_style&quot;:&quot;1&quot;},&quot;address&quot;:{&quot;isActive&quot;:false},&quot;social&quot;:{&quot;isActive&quot;:false,&quot;isEmpty&quot;:false},&quot;search&quot;:{&quot;isActive&quot;:false},&quot;wishList&quot;:{&quot;isActive&quot;:false},&quot;clientZone&quot;:{&quot;isActive&quot;:false,&quot;isManageURL&quot;:&quot;&quot;},&quot;cart&quot;:{&quot;isActive&quot;:false,&quot;showMenuActionButtons&quot;:&quot;&lt;a class=\&quot;actionButton btn-primary-action-button-4\&quot; role=\&quot;button\&quot;&gt;&lt;i class=\&quot;svg-m s123-icon-converter \&quot; data-icon-name=\&quot;shopping-cart\&quot; style=\&quot; mask: url('https:\/\/static1.s123-cdn-static-a.com\/ready_uploads\/svg\/shopping-cart.svg?v=2'); -webkit-mask: url('https:\/\/static1.s123-cdn-static-a.com\/ready_uploads\/svg\/shopping-cart.svg?v=2');\&quot; data-ie11-classes=\&quot;\&quot; alt=\&quot;shopping-cart\&quot;&gt;&amp;nbsp;&lt;\/i&gt;&lt;span class=\&quot;count\&quot;&gt;&lt;\/span&gt;&lt;\/a&gt;&quot;,&quot;hasOnlineStore&quot;:false},&quot;actionsButtons&quot;:{&quot;isActive&quot;:false,&quot;button1&quot;:{&quot;isActive&quot;:false,&quot;showMenuActionButtons&quot;:&quot;&lt;a onclick=\&quot;ScrollToModule('','1');\&quot;&gt;&lt;button {{videoAttributes}} type=\&quot;button\&quot; id=\&quot;topAction_buttonText_1\&quot; class=\&quot;btn btn-primary btn-primary-action-button-1\&quot; style=\&quot;display:none\&quot;&gt;&lt;span class=\&quot;m-b-t\&quot;&gt;&lt;\/span&gt;&lt;\/button&gt;&lt;\/a&gt;&quot;},&quot;button2&quot;:{&quot;isActive&quot;:false,&quot;showMenuActionButtons&quot;:&quot;&lt;a onclick=\&quot;ScrollToModule('','1');\&quot;&gt;&lt;button {{videoAttributes}} type=\&quot;button\&quot; id=\&quot;topAction_buttonText_2\&quot; class=\&quot;btn btn-primary btn-primary-action-button-1\&quot; style=\&quot;display:none\&quot;&gt;&lt;span class=\&quot;m-b-t\&quot;&gt;&lt;\/span&gt;&lt;\/button&gt;&lt;\/a&gt;&quot;}}},&quot;headerCallToActionsButtons&quot;:{},&quot;headerLayout&quot;:1,&quot;languges&quot;:&quot;&quot;,&quot;multiCurrency&quot;:&quot;&quot;,&quot;layoutID&quot;:&quot;1&quot;,&quot;onepage&quot;:&quot;0&quot;,&quot;isMenuMainColor&quot;:false}" data-arranged-icons="false"> 
